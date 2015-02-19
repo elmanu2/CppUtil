@@ -4,11 +4,13 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    testvector.cpp
+    testvector.cpp \
+    date.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
 
 HEADERS += \
-    testvector.h
+    testvector.h \
+    date.h
 
