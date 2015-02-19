@@ -1,18 +1,21 @@
 #include <iostream>
 #include "testvector.h"
 #include "date.h"
-
+#include "logger.h"
 using namespace std;
 
 int main()
 {
     TestVector v;
-    std::cout<<"now :"<<std::endl;
-    std::cout<<Date::getNow().toLog()<<std::endl;
+    Logger logger;
+    logger.setLevel(Logger::eLevelDebug);
+    logger.logDebug("now :");
 
     Date::test();
 
-    std::cout << "Hello World!" << std::endl;
+    Logger::test();
+
+    logger.logDebug("Hello World!");
 
     return 0;
 }

@@ -140,7 +140,6 @@ void Date::test()
     assert(date5 == date6);
 
     std::cout<<"Unit tests on Date class passed sucessfully"<<std::endl;
-
 }
 
 
