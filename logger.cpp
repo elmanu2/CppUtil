@@ -19,12 +19,13 @@ Logger* Logger::getInstance()
 
 Logger::Logger()
 {
-    _logLevelDict[eLevelDebug] = "DEBUG  ";
-    _logLevelDict[eLevelInfo] = "INFO   ";
-    _logLevelDict[eLevelWarning] = "WARNING";
-    _logLevelDict[eLevelError] = "ERROR  ";
+    _logLevelDict[eLevelDebug]      = "DEBUG  ";
+    _logLevelDict[eLevelInfo]       = "INFO   ";
+    _logLevelDict[eLevelWarning]    = "WARNING";
+    _logLevelDict[eLevelError]      = "ERROR  ";
 
-    _logFile.open("log.txt");
+    std::string filename = Date::getNow().toLog() + "-log.txt";
+    _logFile.open(filename.c_str());
 }
 
 Logger::~Logger()

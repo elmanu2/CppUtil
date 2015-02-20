@@ -80,7 +80,7 @@ std::string Date::toStr() const
 std::string Date::toLog() const
 {
     char date[64];
-    sprintf(date, "%04d-%02d-%02dT%02d:%02d:%02d",
+    sprintf(date, "%04d-%02d-%02dT%02d-%02d-%02d",
             _year,_month, _monthDay, _hour, _minute, _second);
     return std::string(date);
 }
@@ -134,7 +134,7 @@ void Date::test()
     assert((fabs(Date::calculerDiff(date1, date2)) - 1.0)  < EPSILON);
     assert((fabs(Date::calculerDiff(date1, date3)) - 60.0)  < EPSILON);
     assert((fabs(Date::calculerDiff(date1, date4)) - 3600.0)  < EPSILON);
-    assert(date4.toLog() == "2015-01-01T01:00:00");
+    assert(date4.toLog() == "2015-01-01T01-00-00");
 
     Date date5(2015,1,1,1,1,1);
     Date date6 = date5;
