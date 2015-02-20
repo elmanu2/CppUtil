@@ -1,4 +1,5 @@
 #include "date.h"
+#include "logger.h"
 #include <ctime>
 #include <cmath>
 #include <cassert>
@@ -139,7 +140,7 @@ void Date::test()
     Date date6 = date5;
     assert(date5 == date6);
 
-    std::cout<<"Unit tests on Date class passed sucessfully"<<std::endl;
+    LOG_INFO("Unit tests on Date class passed sucessfully");
 }
 
 

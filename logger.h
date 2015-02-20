@@ -3,6 +3,13 @@
 
 #include <string>
 #include <map>
+#include <fstream>
+
+#define LOG_DEBUG(message) Logger::getInstance()->logDebug(message);
+#define LOG_INFO(message) Logger::getInstance()->logInfo(message);
+#define LOG_WARNING(message) Logger::getInstance()->logDebug(message);
+#define LOG_ERROR(message) Logger::getInstance()->logError(message);
+
 
 class Logger
 {
@@ -17,7 +24,8 @@ public:
     };
 
 public:
-    Logger();
+
+    static Logger* getInstance();
 
     virtual ~Logger();
 
@@ -25,25 +33,31 @@ public:
 
     ELevel getLevel()const;
 
-    void log(ELevel level_, std::string msg_) const;
+    void log(ELevel level_, std::string msg_);
 
-    void logDebug(std::string msg_)const;
+    void logDebug(std::string msg_);
 
-    void logInfo(std::string msg_)const;
+    void logInfo(std::string msg_);
 
-    void logWarning(std::string msg_)const;
+    void logWarning(std::string msg_);
 
-    void logError(std::string msg_)const;
+    void logError(std::string msg_);
 
     static void test();
 
 protected :
+
+    Logger();
+
+    static Logger* _instance;
 
     static std::map<ELevel, std::string> _logLevelDict;
 
     bool checkLogLevel(ELevel level_)const;
 
     ELevel _level;
+
+    std::ofstream _logFile;
 
 };
 

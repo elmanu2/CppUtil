@@ -1,4 +1,5 @@
 #include "testvector.h"
+#include "logger.h"
 #include <iostream>
 #include <vector>
 #include <cassert>

@@ -7,15 +7,14 @@ using namespace std;
 int main()
 {
     TestVector v;
-    Logger logger;
-    logger.setLevel(Logger::eLevelDebug);
-    logger.logDebug("now :");
+    Logger::getInstance()->setLevel(Logger::eLevelDebug);
+    LOG_DEBUG("now :");
 
     Date::test();
 
     Logger::test();
 
-    logger.logDebug("Hello World!");
+    LOG_DEBUG("Hello World!");
 
     return 0;
 }
