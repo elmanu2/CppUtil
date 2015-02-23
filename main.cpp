@@ -28,16 +28,23 @@ int main()
     msg = "Process ID : " + Helper::toString(environment::getProcessusId());
     LOG_DEBUG(msg);
 
+    environment::setEnv("TEST=toto");
 
-    LOG_DEBUG("Hello World!");
+    environment::appendPath("C:/Windows");
+    LOG_DEBUG("PATH : " + environment::getPath());
 
-    unsigned short val = 0b00000001;
-    LOG_DEBUG(Helper::toString(val));
-    val = 0b11111111;
-    LOG_DEBUG(Helper::toStringBit(val));
+    LOG_DEBUG("User profile : "  + environment::getUserProfile());
 
-    unsigned char byte = 0b11111111;
-    LOG_DEBUG(Helper::toStringBit(byte));
+    LOG_DEBUG("temporary directory : "  + environment::getUserTempDir());
+
+    LOG_DEBUG("OS : "  + environment::getOS());
+
+    LOG_DEBUG("OS version : "  + environment::getOSVersion());
+
+    LOG_DEBUG("Number of processors : "  + environment::getNumberOfProcessor());
+
+    LOG_DEBUG("Windows directory : "  + environment::getWindowsDir());
+
 
     return 0;
 }
