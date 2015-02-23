@@ -7,7 +7,9 @@ SOURCES += main.cpp \
     testvector.cpp \
     date.cpp \
     logger.cpp \
-    singleton.cpp
+    singleton.cpp \
+    environment.cpp \
+    helper.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -16,5 +18,7 @@ HEADERS += \
     testvector.h \
     date.h \
     logger.h \
-    singleton.h
+    singleton.h \
+    environment.h \
+    helper.h
 
