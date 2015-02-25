@@ -5,6 +5,7 @@
 #include "environment.h"
 #include "helper.h"
 #include "stdlib.h"
+#include "point2d.h"
 
 using namespace std;
 
@@ -21,6 +22,8 @@ int main()
     Logger::test();
 
     Helper::test();
+
+    Point2D::test();
 
     std::string msg = "Working directory : " + environment::getWorkingDir();
     LOG_DEBUG(msg);

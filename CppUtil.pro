@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     logger.cpp \
     singleton.cpp \
     environment.cpp \
-    helper.cpp
+    helper.cpp \
+    point2d.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -20,5 +21,6 @@ HEADERS += \
     logger.h \
     singleton.h \
     environment.h \
-    helper.h
+    helper.h \
+    point2d.h
 

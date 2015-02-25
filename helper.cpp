@@ -69,6 +69,36 @@ std::string Helper::toStringBit(unsigned short us)
     return bitString;
 }
 
+unsigned char Helper::bitShiftToLSB(const unsigned char& c)
+{
+    unsigned char resultat = c;
+    if(c == 0x00)
+    {
+        return c;
+    }
+
+    while((resultat&0x01)!=0x01)
+    {
+        resultat = resultat>>1;
+    }
+    return resultat;
+}
+
+unsigned char Helper::bitShiftToMSB(const unsigned char& c)
+{
+    unsigned char resultat = c;
+    if(c == 0x00)
+    {
+        return c;
+    }
+
+    while((resultat&0x80)!=0x80)
+    {
+        resultat = resultat<<1;
+    }
+    return resultat;
+}
+
 void Helper::test()
 {
     int a = 255;
@@ -77,6 +107,14 @@ void Helper::test()
     assert(toString(a) == "255");
     assert(toStringBit(us) == "1111000011110000");
     assert(toStringBit(b) == "11111111");
+
+    unsigned char c = 0b00110000;
+
+    c = bitShiftToLSB(c);
+    assert(toStringBit(c) == "00000011");
+    c = bitShiftToMSB(c);
+    assert(toStringBit(c) == "11000000");
+
 }
 
 

@@ -21,6 +21,9 @@ public:
 
     static std::string toStringBit(unsigned short us);
 
+    static unsigned char bitShiftToLSB(const unsigned char& c);
+
+    static unsigned char bitShiftToMSB(const unsigned char& c);
     static void test();
 
 };
