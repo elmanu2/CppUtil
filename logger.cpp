@@ -4,9 +4,52 @@
 #include <fstream>
 #include <cassert>
 
-
 std::map<Logger::ELevel, std::string> Logger::_logLevelDict;
 Logger* Logger::_instance = NULL;
+
+
+#include <windows.h>
+
+// Remember how things were when we started
+CONSOLE_SCREEN_BUFFER_INFO csbi;
+
+
+void changeConsoleColor(unsigned short color)
+{
+    //    bit 0 - foreground blue
+    //    bit 1 - foreground green
+    //    bit 2 - foreground red
+    //    bit 3 - foreground intensity
+
+    //    bit 4 - background blue
+    //    bit 5 - background green
+    //    bit 6 - background red
+    //    bit 7 - background intensity
+    HANDLE hstdout = GetStdHandle( STD_OUTPUT_HANDLE );
+    SetConsoleTextAttribute( hstdout, color);
+}
+
+void changeConsoleColorRed()
+{
+    changeConsoleColor(0b00001100);
+}
+void changeConsoleColorYellow()
+{
+    changeConsoleColor(0b00001110);
+}
+
+void recordConsoleDefault()
+{
+    HANDLE hstdout = GetStdHandle( STD_OUTPUT_HANDLE );
+    GetConsoleScreenBufferInfo( hstdout, &csbi );
+}
+
+void restoreConsoleColor()
+{
+    HANDLE hstdout = GetStdHandle( STD_OUTPUT_HANDLE );
+    // Keep users happy
+    SetConsoleTextAttribute( hstdout, csbi.wAttributes );
+}
 
 Logger* Logger::getInstance()
 {
@@ -26,6 +69,7 @@ Logger::Logger()
 
     std::string filename = Date::getNow().toLog() + "-log.txt";
     _logFile.open(filename.c_str());
+    recordConsoleDefault();
 }
 
 Logger::~Logger()
@@ -60,12 +104,12 @@ void Logger::log(ELevel level_, std::string msg_)
     if(checkLogLevel(level_))
     {
         std::string msg =   "["+Date::getNow().toLog()+"]"+
-                            "["+_logLevelDict[level_]+"] - "+
-                            msg_;
+                "["+_logLevelDict[level_]+"] - "+
+                msg_;
         std::cout<<msg<<std::endl;
         _logFile<<msg<<std::endl;
-
     }
+    restoreConsoleColor();
 }
 
 void Logger::logDebug(std::string msg_)
@@ -80,11 +124,13 @@ void Logger::logInfo(std::string msg_)
 
 void Logger::logWarning(std::string msg_)
 {
+    changeConsoleColorYellow();
     log(eLevelWarning, msg_);
 }
 
 void Logger::logError(std::string msg_)
 {
+    changeConsoleColorRed();
     log(eLevelError, msg_);
 }
 

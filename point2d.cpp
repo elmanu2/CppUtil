@@ -123,6 +123,11 @@ void Point2D::test()
     assert( p1 - p2 == Point2D(-3.0,-4.0));
     assert( p1 * p2 == Point2D(-2.0,-3.0));
     assert( p1 / p2 == Point2D(-0.5,-1.0/3.0));
+    assert( p1 + 10.0 == Point2D(9.0,9.0));
+    assert( p1 - 10.0 == Point2D(-11.0,-11.0));
+    assert( p1 * 10.0 == Point2D(-10.0,-10.0));
+    assert( p1 / 10.0 == Point2D(-0.1,-0.1));
+
     p2.inverserXY();
     assert(p2 == Point2D(3.0,2.0));
 

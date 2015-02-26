@@ -7,9 +7,8 @@
 
 #define LOG_DEBUG(message) Logger::getInstance()->logDebug(message)
 #define LOG_INFO(message) Logger::getInstance()->logInfo(message)
-#define LOG_WARNING(message) Logger::getInstance()->logDebug(message)
+#define LOG_WARNING(message) Logger::getInstance()->logWarning(message)
 #define LOG_ERROR(message) Logger::getInstance()->logError(message)
-
 
 class Logger
 {
