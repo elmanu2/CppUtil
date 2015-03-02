@@ -48,6 +48,10 @@ int main()
 
     LOG_DEBUG("Windows directory : "  + environment::getWindowsDir());
 
+    int a = 10;
+    int b = 1;
+    fprintf(stdout, "%02d",a);
+    fprintf(stdout, "%02d",b);
 
     return 0;
 }

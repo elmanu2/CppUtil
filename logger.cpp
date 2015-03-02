@@ -8,11 +8,11 @@ std::map<Logger::ELevel, std::string> Logger::_logLevelDict;
 Logger* Logger::_instance = NULL;
 
 
+
 #include <windows.h>
 
 // Remember how things were when we started
 CONSOLE_SCREEN_BUFFER_INFO csbi;
-
 
 void changeConsoleColor(unsigned short color)
 {

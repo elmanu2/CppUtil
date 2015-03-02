@@ -1,5 +1,6 @@
 #include "testvector.h"
 #include "logger.h"
+#include "helper.h"
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -45,6 +46,22 @@ void append2Vectors()
     std::cout<<std::endl;
 }
 
+void vectorMinMax()
+{
+    std::vector<double> v1;
+    v1.push_back(-1.0);
+    v1.push_back(0.0);
+    v1.push_back(2.0);
+    v1.push_back(3.0);
+
+    double min = *std::min_element(v1.begin(), v1.end());
+    double max = *std::max_element(v1.begin(), v1.end());
+
+    LOG_DEBUG("MIN VECTOR : " + Helper::toString(min));
+    LOG_DEBUG("MAX VECTOR : " + Helper::toString(max));
+}
+
+
 TestVector::TestVector()
 {
     std::vector<int> intVec;
@@ -66,6 +83,8 @@ TestVector::TestVector()
     std::cout<<"Accumulate : "<<resultat<<std::endl;
 
     append2Vectors();
+
+    vectorMinMax();
 }
 
 TestVector::~TestVector()
