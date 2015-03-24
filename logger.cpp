@@ -31,11 +31,11 @@ void changeConsoleColor(unsigned short color)
 
 void changeConsoleColorRed()
 {
-    changeConsoleColor(0b00001100);
+    changeConsoleColor(0x0C);
 }
 void changeConsoleColorYellow()
 {
-    changeConsoleColor(0b00001110);
+    changeConsoleColor(0x0E);
 }
 
 void recordConsoleDefault()

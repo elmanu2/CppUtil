@@ -15,21 +15,21 @@ Helper::~Helper()
 std::string Helper::toString(int nb)
 {
     char buffer[256];
-    sprintf(buffer,"%i",nb);
+    sprintf_s(buffer,"%i",nb);
     return std::string(buffer);
 }
 
 std::string Helper::toString(double nb)
 {
     char buffer[256];
-    sprintf(buffer,"%f",nb);
+    sprintf_s(buffer,"%f",nb);
     return std::string(buffer);
 }
 
 std::string Helper::toString(float nb)
 {
     char buffer[256];
-    sprintf(buffer,"%f",nb);
+    sprintf_s(buffer,"%f",nb);
     return std::string(buffer);
 }
 
@@ -108,7 +108,7 @@ void Helper::test()
     assert(toStringBit(us) == "1111000011110000");
     assert(toStringBit(b) == "11111111");
 
-    unsigned char c = 0b00110000;
+    unsigned char c = 0x30;
 
     c = bitShiftToLSB(c);
     assert(toStringBit(c) == "00000011");

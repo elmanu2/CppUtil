@@ -4,6 +4,8 @@
 
 #include "direct.h"
 
+#include <process.h>
+
 environment::environment()
 {
 

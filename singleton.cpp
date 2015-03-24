@@ -2,7 +2,7 @@
 
 Singleton* Singleton::getInstance()
 {
-
+	return new Singleton();
 }
 
 Singleton::Singleton()
