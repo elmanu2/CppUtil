@@ -1,9 +1,15 @@
 #ifndef ENVIRONMENT_H
 #define ENVIRONMENT_H
 
+#ifdef CPPUTILBUILDDLL
+#define CPPUTILEXPORT  __declspec( dllexport ) 
+#else
+#define CPPUTILEXPORT  __declspec( dllimport ) 
+#endif
+
 #include <string>
 
-class environment
+class CPPUTILEXPORT environment
 {
 public:
     environment();

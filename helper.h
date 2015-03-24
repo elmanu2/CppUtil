@@ -1,9 +1,15 @@
 #ifndef HELPER_H
 #define HELPER_H
 
+#ifdef CPPUTILBUILDDLL
+#define CPPUTILEXPORT  __declspec( dllexport ) 
+#else
+#define CPPUTILEXPORT  __declspec( dllimport ) 
+#endif
+
 #include <string>
 
-class Helper
+class CPPUTILEXPORT Helper
 {
 public:
     Helper();

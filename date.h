@@ -1,9 +1,15 @@
 #ifndef DATE_H
 #define DATE_H
 
+#ifdef CPPUTILBUILDDLL
+#define CPPUTILEXPORT  __declspec( dllexport ) 
+#else
+#define CPPUTILEXPORT  __declspec( dllimport ) 
+#endif
+
 #include <string>
 
-class Date
+class CPPUTILEXPORT Date
 {
 public:
     Date(unsigned int year_,

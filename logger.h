@@ -1,6 +1,12 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
+#ifdef CPPUTILBUILDDLL
+#define CPPUTILEXPORT  __declspec( dllexport ) 
+#else
+#define CPPUTILEXPORT  __declspec( dllimport ) 
+#endif
+
 #include <string>
 #include <map>
 #include <fstream>
@@ -10,7 +16,7 @@
 #define LOG_WARNING(message) Logger::getInstance()->logWarning(message)
 #define LOG_ERROR(message) Logger::getInstance()->logError(message)
 
-class Logger
+class CPPUTILEXPORT Logger
 {
 public:
     enum ELevel

@@ -1,5 +1,4 @@
 #include <iostream>
-#include "testvector.h"
 #include "date.h"
 #include "logger.h"
 #include "environment.h"
@@ -9,11 +8,8 @@
 
 using namespace std;
 
-
-
 int main()
 {
-    TestVector v;
     Logger::getInstance()->setLevel(Logger::eLevelDebug);
     LOG_DEBUG("now :");
 

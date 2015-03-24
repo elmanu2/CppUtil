@@ -1,14 +1,18 @@
 #ifndef Point2D_H
 #define Point2D_H
 
-
+#ifdef CPPUTILBUILDDLL
+#define CPPUTILEXPORT  __declspec( dllexport ) 
+#else
+#define CPPUTILEXPORT  __declspec( dllimport ) 
+#endif
 
 #include <vector>
 
 /**
  * @brief Point 2D x/y
  */
-class Point2D
+class CPPUTILEXPORT Point2D
 {
 public :
     /**

@@ -1,8 +1,13 @@
 #ifndef SINGLETON_H
 #define SINGLETON_H
 
+#ifdef CPPUTILBUILDDLL
+#define CPPUTILEXPORT  __declspec( dllexport ) 
+#else
+#define CPPUTILEXPORT  __declspec( dllimport ) 
+#endif
 
-class Singleton
+class CPPUTILEXPORT Singleton
 {
 public:
     static Singleton* getInstance();
