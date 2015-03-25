@@ -21,28 +21,7 @@ int main()
 
     Point2D::test();
 
-    std::string msg = "Working directory : " + environment::getWorkingDir();
-    LOG_DEBUG(msg);
-
-    msg = "Process ID : " + Helper::toString(environment::getProcessusId());
-    LOG_DEBUG(msg);
-
-    environment::setEnv("TEST=toto");
-
-    environment::appendPath("C:/Windows");
-    LOG_DEBUG("PATH : " + environment::getPath());
-
-    LOG_DEBUG("User profile : "  + environment::getUserProfile());
-
-    LOG_DEBUG("temporary directory : "  + environment::getUserTempDir());
-
-    LOG_DEBUG("OS : "  + environment::getOS());
-
-    LOG_DEBUG("OS version : "  + environment::getOSVersion());
-
-    LOG_DEBUG("Number of processors : "  + environment::getNumberOfProcessor());
-
-    LOG_DEBUG("Windows directory : "  + environment::getWindowsDir());
+	environment::logEnvironment();
 
     int a = 10;
     int b = 1;

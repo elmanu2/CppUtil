@@ -44,7 +44,7 @@ public:
 
     static std::string getWindowsDir();
 
-
+	static void logEnvironment();
 };
 
 #endif // ENVIRONMENT_H
