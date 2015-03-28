@@ -11,23 +11,12 @@ using namespace std;
 int main()
 {
     Logger::getInstance()->setLevel(Logger::eLevelDebug);
-    LOG_DEBUG("now :");
-
-    Date::test();
-
+    
     Logger::test();
-
+    Date::test();
     Helper::test();
-
     Point2D::test();
-
 	environment::logEnvironment();
-
-    int a = 10;
-    int b = 1;
-    fprintf(stdout, "%02d",a);
-    fprintf(stdout, "%02d",b);
-
 	system("PAUSE");
     return 0;
 }
