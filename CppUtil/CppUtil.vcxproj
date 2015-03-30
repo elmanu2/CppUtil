@@ -59,7 +59,7 @@
     <TargetExt>.dll</TargetExt>
     <OutDir>$(ProjectDir)bin\</OutDir>
     <IntDir>$(Configuration)\</IntDir>
-    <TargetName>$(PorjectName).d</TargetName>
+    <TargetName>$(ProjectName).d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(ProjectDir)bin\</OutDir>
