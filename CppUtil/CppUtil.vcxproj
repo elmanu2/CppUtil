@@ -56,11 +56,14 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetExt>.d.dll</TargetExt>
-    <OutDir>$(ProjectDir)\bin</OutDir>
+    <TargetExt>.dll</TargetExt>
+    <OutDir>$(ProjectDir)bin\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <TargetName>$(PorjectName).d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(ProjectDir)\bin</OutDir>
+    <OutDir>$(ProjectDir)bin\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -72,7 +75,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <ImportLibrary>$(ProjectDir)\lib\CppUtil.d.lib</ImportLibrary>
+      <ImportLibrary>$(ProjectDir)lib\CppUtil.d.lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
