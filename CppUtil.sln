@@ -8,6 +8,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestCppUtil", "TestCppUtil\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppUtil", "CppUtil\CppUtil.vcxproj", "{80786399-42D9-4865-91A6-944D9BDB4A5E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{49D7A968-3A50-4549-BA78-FC26415A09FE}"
+	ProjectSection(SolutionItems) = preProject
+		install.sh = install.sh
+		test.sh = test.sh
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
