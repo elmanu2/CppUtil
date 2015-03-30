@@ -56,14 +56,19 @@ protected :
 
     static Logger* _instance;
 
-    static std::map<ELevel, std::string> _logLevelDict;
 
     bool checkLogLevel(ELevel level_)const;
 
     ELevel _level;
 
+private :
+	#pragma warning(disable:4251)
+
     std::ofstream _logFile;
 
+    static std::map<ELevel, std::string> _logLevelDict;
+
+	#pragma warning(default:4251)
 };
 
 #endif // LOGGER_H
