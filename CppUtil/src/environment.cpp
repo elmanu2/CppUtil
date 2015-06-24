@@ -95,6 +95,13 @@ std::string environment::getWindowsDir()
     return getEnv("windir");
 }
 
+std::string environment::getWinAppName()
+{
+    char filename[MAX_PATH];
+    GetModuleFileName(NULL, filename, MAX_PATH);
+    return std::string(filename);
+}
+
 void environment::logEnvironment()
 {
     std::string msg = "Working directory : " + environment::getWorkingDir();
@@ -119,6 +126,8 @@ void environment::logEnvironment()
     LOG_INFO("Number of processors : "  + environment::getNumberOfProcessor());
 
     LOG_INFO("Windows directory : "  + environment::getWindowsDir());
+
+    LOG_INFO("Windows application name : " + environment::getWinAppName());
 }
 
 

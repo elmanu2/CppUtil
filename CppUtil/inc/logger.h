@@ -34,6 +34,12 @@ public:
 
     virtual ~Logger();
 
+    void addPrefixLogFile(std::string prefix_);
+
+    void setLogDirectory(std::string logDirectory_);
+
+    void createLogFile();
+
     void setLevel(ELevel level_);
 
     ELevel getLevel()const;
@@ -47,6 +53,8 @@ public:
     void logWarning(std::string msg_);
 
     void logError(std::string msg_);
+
+    void logFilenamePrefix(std::string prefix_);
 
     static void test();
 
@@ -63,6 +71,10 @@ protected :
     ELevel _level;
 
     std::ofstream _logFile;
+
+    std::string _logFilenamePrefix;
+
+    std::string _logDirectory;
 
 };
 

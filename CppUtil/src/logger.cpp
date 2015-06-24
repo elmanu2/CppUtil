@@ -1,5 +1,6 @@
 #include "logger.h"
 #include "date.h"
+#include "fileUtil.h"
 #include <iostream>
 #include <fstream>
 #include <cassert>
@@ -67,14 +68,41 @@ Logger::Logger()
     _logLevelDict[eLevelWarning]    = "WARNING";
     _logLevelDict[eLevelError]      = "ERROR  ";
 
-    std::string filename = Date::getNow().toLog() + "-log.txt";
-    _logFile.open(filename.c_str());
+    _logFilenamePrefix = "";
+    _logDirectory = "";
+
     recordConsoleDefault();
 }
 
 Logger::~Logger()
 {
     _logFile.close();
+}
+
+void Logger::addPrefixLogFile(std::string prefix_)
+{
+    _logFilenamePrefix = prefix_;
+}
+
+void Logger::setLogDirectory(std::string logDirectory_)
+{
+    _logDirectory = logDirectory_;
+}
+
+void Logger::createLogFile()
+{
+    std::string logDirectory = _logDirectory + "/log";
+    FileUtil::createDirectory(logDirectory);
+    std::string filename = logDirectory + "/" + _logFilenamePrefix + Date::getNow().toLog() + "-log.txt";
+    _logFile.open(filename.c_str());
+    if(!_logFile.is_open())
+    {
+        LOG_ERROR("Log file creation failure " + filename);
+    }
+    else
+    {
+        LOG_INFO("Log file path " + filename);
+    }
 }
 
 void Logger::setLevel(ELevel level_)

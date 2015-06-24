@@ -10,14 +10,19 @@ using namespace std;
 
 int main()
 {
-    Logger::getInstance()->setLevel(Logger::eLevelDebug);
+
+    Logger* logger = Logger::getInstance();
+    logger->setLevel(Logger::eLevelDebug);
+    logger->setLogDirectory(environment::getUserTempDir());
+    logger->addPrefixLogFile("TestCppUtil-");
+    logger->createLogFile();
     
     Logger::test();
     Date::test();
     Helper::test();
     Point2D::test();
-	environment::logEnvironment();
-	system("PAUSE");
+    environment::logEnvironment();
+    system("PAUSE");
     return 0;
 }
 

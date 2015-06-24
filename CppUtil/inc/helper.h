@@ -8,6 +8,7 @@
 #endif
 
 #include <string>
+#include "windows.h"
 
 class CPPUTILEXPORT Helper
 {
@@ -30,6 +31,9 @@ public:
     static unsigned char bitShiftToLSB(const unsigned char& c);
 
     static unsigned char bitShiftToMSB(const unsigned char& c);
+
+    static std::string windowsError( const DWORD& dwErrorCode);
+
     static void test();
 
 };

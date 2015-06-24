@@ -99,6 +99,33 @@ unsigned char Helper::bitShiftToMSB(const unsigned char& c)
     return resultat;
 }
 
+std::string Helper::windowsError( const DWORD& dwErrorCode)
+{
+     DWORD retSize;
+     LPTSTR pTemp=NULL;
+     std::string errorText;
+
+     retSize=FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER|
+                           FORMAT_MESSAGE_FROM_SYSTEM|
+                           FORMAT_MESSAGE_ARGUMENT_ARRAY,
+                           NULL,
+                           GetLastError(),
+                           LANG_NEUTRAL,
+                           (LPTSTR)&pTemp,
+                           0,
+                           NULL );
+     //if (!retSize || pTemp == NULL) {
+     //     pBuf[0]='\0';
+     //}
+     //else {
+     //     pTemp[strlen(pTemp)-2]='\0'; //remove cr and newline character
+     //     sprintf(pBuf,"%0.*s (0x%x)",bufSize-16,pTemp,GetLastError());
+     //     LocalFree((HLOCAL)pTemp);
+     //}
+     errorText = std::string(pTemp);
+     LocalFree((HLOCAL)pTemp);
+     return errorText;
+}
 void Helper::test()
 {
     int a = 255;

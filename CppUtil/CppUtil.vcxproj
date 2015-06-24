@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClInclude Include="inc\date.h" />
     <ClInclude Include="inc\environment.h" />
+    <ClInclude Include="inc\fileUtil.h" />
     <ClInclude Include="inc\helper.h" />
     <ClInclude Include="inc\logger.h" />
     <ClInclude Include="inc\point2d.h" />
@@ -22,9 +23,9 @@
   <ItemGroup>
     <ClCompile Include="src\date.cpp" />
     <ClCompile Include="src\environment.cpp" />
+    <ClCompile Include="src\fileUtil.cpp" />
     <ClCompile Include="src\helper.cpp" />
     <ClCompile Include="src\logger.cpp" />
-    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\point2d.cpp" />
     <ClCompile Include="src\singleton.cpp" />
     <ClCompile Include="src\testvector.cpp" />
