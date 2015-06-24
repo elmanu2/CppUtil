@@ -39,4 +39,8 @@ void FileUtil::createDirectory(std::string path_)
         LOG_ERROR("Directory creation failure : " + path_);
         LOG_ERROR(Helper::windowsError(GetLastError()));
     }
+    else
+    {
+        LOG_INFO("Directory created successfully : " + path_); 
+    }
 }

@@ -87,6 +87,7 @@ void Logger::addPrefixLogFile(std::string prefix_)
 void Logger::setLogDirectory(std::string logDirectory_)
 {
     _logDirectory = logDirectory_;
+    FileUtil::createDirectory(_logDirectory);
 }
 
 void Logger::createLogFile()

@@ -13,7 +13,7 @@ int main()
 
     Logger* logger = Logger::getInstance();
     logger->setLevel(Logger::eLevelDebug);
-    logger->setLogDirectory(environment::getUserTempDir());
+    logger->setLogDirectory(environment::getUserTempDir()+ "/wistiti");
     logger->addPrefixLogFile("TestCppUtil-");
     logger->createLogFile();
     
