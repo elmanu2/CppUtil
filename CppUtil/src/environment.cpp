@@ -53,7 +53,7 @@ void environment::appendPath(std::string path_)
 
 void environment::setEnv(std::string env_)
 {
-    putenv(env_.c_str());
+    _putenv(env_.c_str());
 }
 
 std::string environment::getUserProfile()
