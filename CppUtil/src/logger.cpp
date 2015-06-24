@@ -95,6 +95,11 @@ void Logger::createLogFile()
     std::string logDirectory = _logDirectory + "/log";
     FileUtil::createDirectory(logDirectory);
     std::string filename = logDirectory + "/" + _logFilenamePrefix + Date::getNow().toLog() + "-log.txt";
+    //If it was already created, then we close it to reopen a new one
+    if(_logFile.is_open())
+    {
+        _logFile.close();
+    }
     _logFile.open(filename.c_str());
     if(!_logFile.is_open())
     {
