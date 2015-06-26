@@ -61,9 +61,34 @@ std::string environment::getUserProfile()
     return getEnv("USERPROFILE");
 }
 
+std::string environment::getAppDataDir()
+{
+    return getEnv("LOCALAPPDATA");
+}
+
+std::string environment::getComputerName()
+{
+    return getEnv("COMPUTERNAME");
+}
+
+std::string environment::getHomeDrive()
+{
+    return  getEnv("HOMEDRIVE");
+}
+
+std::string environment::getUserName()
+{
+    return getEnv("USERNAME");
+}
+
 std::string environment::getUserTempDir()
 {
     return getEnv("TMP");
+}
+
+std::string environment::getProgramFilesDir()
+{
+    return getEnv("ProgramFiles");
 }
 
 std::string environment::getOS()
@@ -104,30 +129,37 @@ std::string environment::getWinAppName()
 
 void environment::logEnvironment()
 {
-    std::string msg = "Working directory : " + environment::getWorkingDir();
-    LOG_INFO(msg);
+    LOG_INFO("Windows application name : " + environment::getWinAppName());
 
-    msg = "Process ID : " + Helper::toString(environment::getProcessusId());
-    LOG_INFO(msg);
+    LOG_INFO("Working directory : " + environment::getWorkingDir());
+
+    LOG_INFO("Process ID : " + Helper::toString(environment::getProcessusId()));
 
     environment::setEnv("TEST=toto");
 
     environment::appendPath("C:/Windows");
     LOG_INFO("PATH : " + environment::getPath());
 
-    LOG_INFO("User profile : "  + environment::getUserProfile());
+    LOG_INFO("Computer name       : " + environment::getComputerName());
+
+    LOG_INFO("User profile        : " + environment::getUserProfile());
+
+    LOG_INFO("Local app data dir  : " + environment::getAppDataDir());
+
+    LOG_INFO("Home drive          : " + environment::getHomeDrive());
+
+    LOG_INFO("Program files dir   : " + environment::getProgramFilesDir());
 
     LOG_INFO("temporary directory : "  + environment::getUserTempDir());
 
-    LOG_INFO("OS : "  + environment::getOS());
+    LOG_INFO("OS                  : "  + environment::getOS());
 
-    LOG_INFO("OS version : "  + environment::getOSVersion());
+    LOG_INFO("OS version          : "  + environment::getOSVersion());
 
     LOG_INFO("Number of processors : "  + environment::getNumberOfProcessor());
 
-    LOG_INFO("Windows directory : "  + environment::getWindowsDir());
+    LOG_INFO("Windows directory   : "  + environment::getWindowsDir());
 
-    LOG_INFO("Windows application name : " + environment::getWinAppName());
 }
 
 

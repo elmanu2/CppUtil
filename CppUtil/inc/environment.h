@@ -32,9 +32,19 @@ public:
 
     static std::string getUserProfile();
 
+    static std::string getAppDataDir();
+
+    static std::string getComputerName();
+
+    static std::string getUserName();
+
     static std::string getUserTempDir();
 
     static std::string getSystemTempDir();
+
+    static std::string getProgramFilesDir();
+
+    static std::string getHomeDrive();
 
     static std::string getOS();
 
