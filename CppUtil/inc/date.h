@@ -19,6 +19,8 @@ public:
          unsigned int minute_,
          unsigned int second_);
 
+    Date();
+
     Date(time_t date_);
 
     Date(const Date& source);

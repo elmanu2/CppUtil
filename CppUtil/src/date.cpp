@@ -5,6 +5,8 @@
 #include <cassert>
 #include <iostream>
 
+Date::Date(){
+}
 
 Date::Date( unsigned int year_,
             unsigned int month_,
